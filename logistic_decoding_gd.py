@@ -18,5 +18,5 @@ def logistic_decoding_gd(model, prompt, class_names, temp = 0.8):
         for class_name in class_names[1:]:
             regex= regex+"|"+class_name
         regex+=")$"
-        ans = model+prompt+ gen(regex = '(1|2|3|4|5)$', temperature = temp, name = 'text')
-        return int(ans['text'])
+        ans = model+prompt+ gen(regex = regex, temperature = temp, name = 'text')
+        return ans['text']
